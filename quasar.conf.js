@@ -69,7 +69,9 @@ module.exports = function (/* ctx */) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
-      }
+      },
+      publicPath: '/testapp/',
+      distDir: 'docs'
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
