@@ -70,7 +70,6 @@ module.exports = function (/* ctx */) {
           exclude: /node_modules/
         })
       },
-      publicPath: '/testapp/',
       distDir: 'docs'
     },
 
