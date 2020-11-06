@@ -10,7 +10,7 @@
     <img :src="imgSrc" />
 <canvas style="display:none;"></canvas>
     <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn>
-    <a id="imgatag" download="photo.png" :href="imgSrc"/>
+    <a id="imgatag" download="photo.jpg" :href="imgSrc"/>
   </q-page>
 </template>
 
@@ -49,7 +49,7 @@ export default {
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
       // Other browsers will fall back to image/png
-      this.imgSrc = canvas.toDataURL('image/png');
+      this.imgSrc = canvas.toDataURL('image/jpeg');
 
       // const track = this.video.srcObject.getVideoTracks()[0]
       // const imageCapture = new ImageCapture(track)
