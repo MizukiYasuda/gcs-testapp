@@ -8,6 +8,7 @@
     <video ref="video" id="video"  autoplay playsinline ></video>
     <q-btn @click="takePhoto">TAKE PHOTO!</q-btn>
     <img :src="imgSrc" />
+<canvas style="display:none;"></canvas>
     <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn>
     <a id="imgatag" download="photo.png" :href="imgSrc"/>
   </q-page>
@@ -42,15 +43,24 @@ export default {
   methods: {
     takePhoto() {
       const self = this
-      const track = this.video.srcObject.getVideoTracks()[0]
-      const imageCapture = new ImageCapture(track)
-      imageCapture.takePhoto().then(function(blob) {
-        console.log('Took photo:', blob);
-        // img.classList.remove('hidden');
-        self.imgSrc = URL.createObjectURL(blob);
-      }).catch(function(error) {
-        console.log('takePhoto() error: ', error);
-      });
+      const video = document.querySelector('video')
+      const canvas = document.querySelector('canvas')
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      // Other browsers will fall back to image/png
+      this.imgSrc = canvas.toDataURL('image/webp');
+
+      // const track = this.video.srcObject.getVideoTracks()[0]
+      // const imageCapture = new ImageCapture(track)
+      // imageCapture.takePhoto().then(function(blob) {
+      //   console.log('Took photo:', blob);
+      //   // img.classList.remove('hidden');
+      //   self.imgSrc = URL.createObjectURL(blob);
+      //   alert(self.imgSrc)
+      // }).catch(function(error) {
+      //   alert('takePhoto() error: ', error);
+      // });
     },
     downloadPhoto() {
       // window.navigator.msSaveBlob(this.imgSrc, "photo.png");
