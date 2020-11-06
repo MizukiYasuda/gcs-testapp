@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <q-page class="flex flex-center">
     <h1>This is CAMERA page</h1>
