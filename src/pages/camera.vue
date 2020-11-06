@@ -1,47 +1,38 @@
 <template>
   <q-page class="flex flex-center">
-    <h1>This is CAMERA page</h1>
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
-    <q-btn color="primary" label="Get Picture" @click="captureImage" />
-    <img :src="imageSrc" />
+    <h1>This is SIGNATURE page</h1>
+    <img
+      alt="Quasar logo"
+      src="~assets/quasar-logo-full.svg"
+    >
+    <video ref="video" id="video"  autoplay playsinline ></video>
   </q-page>
 </template>
 
 <script>
-// outside of the default export,
-// we need to listen to the event for ourselves:
-document.addEventListener(
-  "deviceready",
-  () => {
-    // it's only now that we are sure
-    // the event has triggered
-  },
-  false
-);
 export default {
-  name: "PageIndex",
-  data() {
+  name: 'app',
+  data () {
     return {
-      imageSrc: ""
-    };
+      video: {}
+    }
   },
-  methods: {
-    captureImage() {
-      console.log(navigator);
-      navigator.camera.getPicture(
-        data => {
-          // on success
-          this.imageSrc = `data:image/jpeg;base64,${data}`;
-        },
-        () => {
-          // on fail
-          this.$q.notify("Could not access device camera.");
-        },
-        {
-          // camera options
+  mounted () {
+    const medias = {audio: false,
+      video: {
+        facingMode: {
+          // exact: 'environment'  // リアカメラの設定
+          exact: 'user' // インカメラの設定
         }
-      );
+      }}
+    this.video = this.$refs.video
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(medias).then(stream => {
+        this.video.srcObject = stream
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
-};
+}
 </script>
