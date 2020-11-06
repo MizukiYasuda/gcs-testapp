@@ -64,7 +64,7 @@ export default {
     },
     downloadPhoto() {
       // window.navigator.msSaveBlob(this.imgSrc, "photo.png");
-      // document.getElementById("download").href = window.URL.createObjectURL(this.imgSrc); 
+      document.getElementById("imgatag").href = this.imgSrc; 
       document.getElementById("imgatag").click()
     }
   },
