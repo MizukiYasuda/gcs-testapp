@@ -54,13 +54,13 @@ const linksData = [
     title: 'Camera',
     caption: 'Camera Access',
     icon: 'photo_camera',
-    link: '/gcs-testapp/#/camera'
+    link: '/#/camera'
   },
   {
     title: 'Signature',
     caption: 'Free Write Signature',
     icon: 'history_edu',
-    link: '/gcs-testapp/#/signature'
+    link: '/#/signature'
   },
   {
     title: 'Docs',
