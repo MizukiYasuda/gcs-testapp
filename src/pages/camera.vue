@@ -49,7 +49,7 @@ export default {
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
       // Other browsers will fall back to image/png
-      this.imgSrc = canvas.toDataURL('image/webp');
+      this.imgSrc = canvas.toDataURL('image/png');
 
       // const track = this.video.srcObject.getVideoTracks()[0]
       // const imageCapture = new ImageCapture(track)
@@ -64,7 +64,7 @@ export default {
     },
     downloadPhoto() {
       // window.navigator.msSaveBlob(this.imgSrc, "photo.png");
-      document.getElementById("imgatag").href = this.imgSrc; 
+      // document.getElementById("imgatag").href = this.imgSrc;
       document.getElementById("imgatag").click()
     }
   },
