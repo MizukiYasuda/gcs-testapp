@@ -51,6 +51,18 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
+    title: 'Camera',
+    caption: 'Camera Access',
+    icon: 'photo_camera',
+    link: '/#/camera'
+  },
+  {
+    title: 'Signature',
+    caption: 'Free Write Signature',
+    icon: 'history_edu',
+    link: '/#/signature'
+  },
+  {
     title: 'Docs',
     caption: 'quasar.dev',
     icon: 'school',
