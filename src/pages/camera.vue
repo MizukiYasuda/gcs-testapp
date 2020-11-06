@@ -10,7 +10,7 @@
     <img :src="imgSrc" />
 <canvas style="display:none;"></canvas>
     <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn>
-    <a id="imgatag" download="photo.png" />
+    <a id="imgatag" download="photo.png" :href="imgSrc" >download</a>
   </q-page>
 </template>
 

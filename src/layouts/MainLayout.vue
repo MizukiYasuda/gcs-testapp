@@ -15,7 +15,7 @@
           Quasar App
         </q-toolbar-title>
 
-        <div>deployed on 202011061745</div>
+        <div>deployed on 202011061757</div>
         <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
