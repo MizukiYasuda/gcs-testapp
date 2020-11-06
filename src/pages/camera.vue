@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center" style="margin-bottom:30px;">
     <h1>This is CAMERA page</h1>
     <img
       alt="Quasar logo"
@@ -10,7 +10,7 @@
     <img :src="imgSrc" />
 <canvas style="display:none;"></canvas>
     <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn>
-    <a id="imgatag" download="photo.jpg" :href="imgSrc"/>
+    <a id="imgatag" download="photo.png" />
   </q-page>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       video: {},
-      imgSrc: ''
+      imgSrc: '',
     }
   },
   mounted () {
@@ -28,7 +28,7 @@ export default {
       video: {
         facingMode: {
           // exact: 'environment'  // リアカメラの設定
-          exact: 'user' // インカメラの設定
+          exact: 'user' // フロントカメラの設定
         }
       }}
     this.video = this.$refs.video
@@ -49,7 +49,7 @@ export default {
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
       // Other browsers will fall back to image/png
-      this.imgSrc = canvas.toDataURL('image/jpeg');
+      this.imgSrc = canvas.toDataURL('image/png');
 
       // const track = this.video.srcObject.getVideoTracks()[0]
       // const imageCapture = new ImageCapture(track)
@@ -64,7 +64,7 @@ export default {
     },
     downloadPhoto() {
       // window.navigator.msSaveBlob(this.imgSrc, "photo.png");
-      // document.getElementById("imgatag").href = this.imgSrc;
+      document.getElementById("imgatag").href = this.imgSrc
       document.getElementById("imgatag").click()
     }
   },
