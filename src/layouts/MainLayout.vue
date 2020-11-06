@@ -54,13 +54,13 @@ const linksData = [
     title: 'Camera',
     caption: 'Camera Access',
     icon: 'photo_camera',
-    link: '/#/camera'
+    link: '/gcs-testapp/#/camera'
   },
   {
     title: 'Signature',
     caption: 'Free Write Signature',
     icon: 'history_edu',
-    link: '/#/signature'
+    link: '/gcs-testapp/#/signature'
   },
   {
     title: 'Docs',
@@ -103,7 +103,19 @@ const linksData = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
-  }
+  },
+  {
+    title: 'Camera for local',
+    caption: 'Camera Access',
+    icon: 'photo_camera',
+    link: '/#/camera'
+  },
+  {
+    title: 'Signature for local',
+    caption: 'Free Write Signature',
+    icon: 'history_edu',
+    link: '/#/signature'
+  },
 ]
 
 export default {
