@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center" style="margin-bottom:30px;">
+  <q-page class="flex flex-center" style="margin-bottom:50px;">
     <h1>This is CAMERA page</h1>
     <!-- <img
       alt="Quasar logo"

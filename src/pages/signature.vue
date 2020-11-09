@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center" style="margin-bottom:50px;">
     <h1>This is SIGNATURE page</h1>
     <canvas id="canvassample" width="500" height="300"></canvas>
     <div>
@@ -38,9 +38,9 @@ export default {
     this.canvas.addEventListener('mousemove', this.movePoint, false);
     this.canvas.addEventListener('mouseup', this.endPoint, false);
     // スマホ対応
-    // this.canvas.addEventListener('touchstart', this.startPoint, false);
-    // this.canvas.addEventListener('touchmove', this.movePoint, false);
-    // this.canvas.addEventListener('touchend', this.endPoint, false);
+    this.canvas.addEventListener('touchstart', this.startPoint, false);
+    this.canvas.addEventListener('touchmove', this.movePoint, false);
+    this.canvas.addEventListener('touchend', this.endPoint, false);
     
   },
   methods: {
