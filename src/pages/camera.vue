@@ -8,7 +8,7 @@
     <video ref="video" id="video"  autoplay playsinline ></video>
     <q-btn @click="takePhoto">TAKE PHOTO!</q-btn>
     <img :src="imgSrc" />
-<canvas style="display:none;"></canvas>
+    <canvas style="display:none;"></canvas>
     <!-- <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn> -->
     <a id="imgatag" download="photo.png" :href="imgSrc" >download...</a>
   </q-page>
