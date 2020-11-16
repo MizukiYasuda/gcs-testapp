@@ -2,7 +2,7 @@
   <q-page class="flex flex-center" style="margin-bottom:50px;">
     <h1>This is SIGNATURE page</h1>
     <div class="full-width flex flex-center">
-      <canvas id="canvassample" width="500" height="300"></canvas>
+      <canvas id="canvassample" width="1000" height="300"></canvas>
     </div>
     <div>
     <!-- <button type="button" onclick="prevCanvas()">戻る</button>
@@ -40,7 +40,7 @@ export default {
       canvas: null,
       context: null,
       moveflg: 0,
-      drawSize: 4,
+      drawSize: 2,
       drawColor: '#333',
       imgSrc: '',
       isModalOpen: false,
@@ -71,16 +71,16 @@ export default {
       // console.log('clientX', e.clientX);
       
       // 矢印の先っぽから始まるように調整
-      const Xpoint = e.layerX-8;
-      const Ypoint = e.layerY-8;
+      const Xpoint = e.layerX-this.drawSize;
+      const Ypoint = e.layerY-this.drawSize;
         
       this.context.moveTo(Xpoint, Ypoint);
     },
     movePoint(e) {
       if(!(e.buttons === 1 || e.witch === 1 || e.type == 'touchmove')) return
       // console.log('%cmovePoint', 'color:red;', e)
-      const Xpoint = e.layerX-8;
-      const Ypoint = e.layerY-8;
+      const Xpoint = e.layerX-this.drawSize;
+      const Ypoint = e.layerY-this.drawSize;
       this.moveflg = 1;
           
       this.context.lineTo(Xpoint, Ypoint);
@@ -92,8 +92,8 @@ export default {
     endPoint(e) {
       // console.log('%cendPoint', 'color:red; font-size:20px;', e)
       if(this.moveflg === 0) {
-        const Xpoint = e.layerX-8;
-        const Ypoint = e.layerY-8;
+        const Xpoint = e.layerX-this.drawSize;
+        const Ypoint = e.layerY-this.drawSize;
 
         this.context.lineTo(Xpoint-1, Ypoint-1);
         this.context.lineCap = "round";
