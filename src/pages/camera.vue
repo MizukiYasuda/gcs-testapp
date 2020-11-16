@@ -5,12 +5,32 @@
       alt="Quasar logo"
       src="~assets/quasar-logo-full.svg"
     > -->
-    <video ref="video" id="video"  autoplay playsinline ></video>
+    <div class="full-width flex flex-center">
+      <video ref="video" id="video"  autoplay playsinline ></video>
+    </div>
     <q-btn @click="takePhoto">TAKE PHOTO!</q-btn>
-    <img :src="imgSrc" />
+    <!-- <img :src="imgSrc" /> -->
     <canvas style="display:none;"></canvas>
     <!-- <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn> -->
-    <a id="imgatag" download="photo.png" :href="imgSrc" >download...</a>
+    <!-- <a id="imgatag" download="photo.png" :href="imgSrc" >download...</a> -->
+    <q-dialog v-model="isModalOpen">
+      <q-card style="width: 700px; max-width: 80vw;">
+        <q-card-section>
+          <div class="text-h6">写真を保存</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          <img :src="imgSrc" />
+          <!-- <canvas style="display:none;"></canvas> -->
+          <!-- <q-btn @click="downloadPhoto">DOWNLOAD PHOTO!</q-btn> -->
+          <a id="imgatag" download="photo.png" :href="imgSrc" >download...</a>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Close" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -21,6 +41,7 @@ export default {
     return {
       video: {},
       imgSrc: '',
+      isModalOpen: false,
     }
   },
   mounted () {
@@ -50,6 +71,7 @@ export default {
       canvas.getContext('2d').drawImage(video, 0, 0);
       // Other browsers will fall back to image/png
       this.imgSrc = canvas.toDataURL('image/png');
+      this.isModalOpen = true
 
       // const track = this.video.srcObject.getVideoTracks()[0]
       // const imageCapture = new ImageCapture(track)
